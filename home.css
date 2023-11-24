@@ -1,0 +1,33 @@
+:root{
+    --logo-font: 'Pattaya', sans-serif;
+    --text: 'Roboto', sans-serif;
+    --laranja: #F27706;
+    --branco: #FFFFFF;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    color: var(--branco);
+    font-family: var(--text);
+    background: linear-gradient(#f27806ce 10%, #fff3e700);
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+}
+header p{
+    display: grid;
+}
