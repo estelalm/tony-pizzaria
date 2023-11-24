@@ -17,5 +17,18 @@ const mostrarLogin = () => {
 
     botComecar.classList.add('hide')
 }
-
 botComecar.addEventListener('click', mostrarLogin)
+
+const logar = () => {
+
+    let login = document.getElementById('email').value
+    let senha = document.getElementById('senha').value
+
+    if(login == "user@gmail.com" && senha == "senha123"){
+        window.location.assign('./home.html')
+    }else{
+        alert("usuário ou senha incorretos.")
+    }
+}
+
+botEntrar.addEventListener('click', logar)
