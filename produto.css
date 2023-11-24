@@ -1,0 +1,48 @@
+:root{
+    --logo-font: 'Pattaya', sans-serif;
+    --most-text: 'Roboto', sans-serif;
+    --laranja: #F27706;
+    --branco: #FFFFFF;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: var(--most-text);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+picture{
+    height: 20vh;
+    width: 100%;
+}
+picture a{
+    position: absolute;
+    display: grid;
+    place-content: center;
+}
+picture img{
+    width: 120%;
+}
+
+.info-produto{
+    background-color: var(--branco);
+    border-radius: 40px;
+    top: -10%;
+    padding: 24px;
+    position: relative;
+    display: grid;
+    gap: 12px;
+}
+h1{
+    font-size: 1.5rem;
+    width: 80%;
+}
+
+.comentarios{
+    
+}
