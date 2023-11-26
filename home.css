@@ -52,24 +52,27 @@ main{
     padding: 12px;
     border-radius: 10px;
     width: 90%;
+    display: flex;
+    align-items: center;
 }
 .search input{
     background-color: transparent;
     border: none;
     height: 100%;
+    width: 90%;
 }
 .search input:focus{
     outline-style: none;
 }
 .search input::-webkit-input-placeholder{
-    font-size: 10px;
+    font-size: 12px;
+    color: rgba(128, 128, 128, 0.685);
 }
 .search img{
     height: 3.2vh;
 }
 
 .search img{
-    width: 10%;
     color: black;
 }
 
