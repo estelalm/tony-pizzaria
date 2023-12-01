@@ -10,26 +10,26 @@
 </head>
 <body>
     <div class="overlay"></div>
-    <header><a href="./index.html" class="voltar"><img src="./img/seta.png" alt=""></a> Criar conta</header>
+    <header><a href="../login/index.html" class="voltar"><img src="../img/seta.png" alt=""></a> Criar conta</header>
     <main>
         <div class="profile">
             <div class="criar-icon" id="icon">
             </div>
             <label class="add-img"> 
-                <img src="./img/add-photo.png" alt="">
+                <img src="../img/add-photo.png" alt="">
                 <input type="file" class="add-img-input" id="add-img">
             </label>
         </div>
-        <div class="espaco-criar">
+        <form class="espaco-criar">
             <div class="info">
-                <div class="log"><label>Nome do usuário</label><input type="text" id="nome"></div>
-                <div class="log"><label>Endereço de email</label><input type="email" name="email" id="email"></div>
-                <div class="log"><label>Senha</label><input type="password" name="password" id="senha"></div>
-                <div class="log"><label>Confirmação de senha</label><input type="password" name="password" id="confirma-senha"></div>
-                <div class="log"><label for="">Telefone</label><input type="tel" name="telefone" id="telefone" maxlength="15"></div>
+                <div class="log"><label>Nome do usuário</label><input type="text" id="nome" required></div>
+                <div class="log"><label>Endereço de email</label><input type="email" name="email" id="email" required></div>
+                <div class="log"><label>Senha</label><input type="password" name="password" id="senha" required></div>
+                <div class="log"><label>Confirmação de senha</label><input type="password" name="password" id="confirma-senha" required></div>
+                <div class="log"><label>Telefone</label><input type="tel" name="telefone" id="telefone" maxlength="15" required></div>
             </div>
             <button id="criar-conta">Criar conta</button>
-        </div>
+        </form>
 
     </main>
 </body>

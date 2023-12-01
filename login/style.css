@@ -11,23 +11,22 @@
     box-sizing: border-box;
 }
 body{
-    height: 100vh;
-    width: 100vw;
     background-image: url(../img/bg-inicial.png);
     background-position: 50%;
     background-size: cover;
     color: var(--branco);
     display: grid;
     grid-template-rows: 20% 1fr;
-    overflow: scroll;
+    overflow: hidden;
+    height: 100vh;
 }
 
 .overlay{
     position: absolute;
     background: linear-gradient(#f27806ce 60%, #fff3e700);
     z-index: -1;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 
 header{
@@ -147,17 +146,17 @@ button{
     padding: 8px;
 }
 
+
+/* ------------ desktop ------------- */
+
 @media (min-width: 800px){
 
     body{
         height: 100vh;
-        background-image: url(../img/bg-inicial.png);
-        background-position: 50%;
-        background-size: cover;
-        color: var(--branco);
         display: grid;
-        grid-template-rows: 20% 1fr;
-        place-content: center;
+        grid-template-rows: 32% 50%;
+        overflow: hidden;
+        place-content: start;
     }
 
     .overlay{
@@ -168,51 +167,77 @@ button{
         justify-content: start;
         align-items: center;
         width: 100%;
-        padding: 24px 8vw;
+        padding: 5vw 6vw 6vh 8vw;
     }
 
     main{
-        width: 90%;
-        padding: 48px 16px;
-        align-items: center;
-        justify-content: end;
+        width: 100vw;
+        padding: 0;
+        align-items: start;
+        justify-content: start;
         flex-direction: row;
+
     }
     .fixed{
-        width: 100%;
+        width: 48%;
         display: grid;
         place-items: start;
-        padding: 8vw;
+        padding: 1vw;
         gap: 0px;
+        padding: 0 8vw;
     }
 
     #title{
-        font-size: 2.4rem;
+        font-size: 2.7rem;
         letter-spacing: 0;
-    }
-    #subtitle{
-        font-size: 1rem;
-        width: 30%;
-    }
-    
-    #comecar{
-        font-size: 1.3rem;
-        margin-top: 16vh;
-        width: 30%;
     }
     
     .login-container{
         display: grid;
-        place-content: center;
         gap: 12px;
+        padding: 24px;
+        background-color: rgba(0, 0, 0, 0.658);
+        width: inherit;
+        place-content: center;
+        border-radius: 30px;
+        width: 110%;
     }
 
         .login{
-        width: 80vw;
+        width: 50vw;
+        height: 40vh;
         gap: 32px;
-        background-color: rgba(0, 0, 0, 0.418);
-        padding: 2vw;
-        border-radius: 30px;
+        padding: 0;
+        place-content: start center;
     }
-    
+
+    .log{
+        border-bottom: solid white 1px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: inherit;
+        width: 100%;
+        font-size: 3rem;
+    }
+
+    #subtitle{
+        width: 90%;
+        font-size: 1.15rem;
+        padding: 1vw 0;
+    }
+    .criar{
+        padding: 0;
+        font-size: 1rem;
+    }
+    .criar a{
+        font-size: 1.4rem;
+    }
+    #comecar{
+        margin-top: 4vh;
+        width: 80%;
+    }
+    button {
+        width: 100%;
+    }
 }

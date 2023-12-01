@@ -45,15 +45,25 @@ const criarConta = () => {
     const icon = mudarPerfil()
 
     if (nome == "" || email == "" || senha == "" || senhaConfirmada == "" || telefone == "") {
-        alert('Preencha todos os campos')
-    } else if (!email.match(emailValido)) {
-        alert("Email invalido")
     } else if (senha != senhaConfirmada) {
         alert("As senhas não são iguais")
     } else {
         alert("Conta criada, voltando para a página de login")
-        window.location.assign("./index.html")
+        window.location.assign("../index.html")
     }
+
+    // if (nome == "" || email == "" || senha == "" || senhaConfirmada == "" || telefone == "") {
+    //     alert('Preencha todos os campos')
+    // } else if (!email.match(emailValido)) {
+    //     alert("Email invalido")
+    // } else if (senha != senhaConfirmada) {
+    //     alert("As senhas não são iguais")
+    // } else {
+    //     alert("Conta criada, voltando para a página de login")
+    //     window.location.assign("./login/index.html")
+    // }
+
+    return status
 
 }
 
