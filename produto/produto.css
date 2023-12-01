@@ -1,26 +1,33 @@
-:root{
+
+:root {
     --logo-font: 'Pattaya', sans-serif;
     --most-text: 'Roboto', sans-serif;
     --laranja: #F27706;
     --branco: #FFFFFF;
     --cinza: #747474;
+    --cinza_claro: #999999;
 }
 
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+
+body {
     font-family: var(--most-text);
     color: var(--cinza);
     height: 100vh;
     width: 100vw;
     overflow-x: hidden;
     display: grid;
-    grid-template-rows: 1fr 28%;
+    grid-template-rows: 1fr 40%;
 }
-picture{
+
+
+picture {
     height: 50%;
     width: 100%;
     overflow: hidden;
@@ -31,12 +38,18 @@ picture{
     background-position: center;
     padding: 32px;
 }
-picture a{
+
+
+picture a {
     display: grid;
     position: fixed;
 }
+picture a img{
+    height: 100%;
+}
 
-.info-produto{
+
+.info-produto {
     background-color: var(--branco);
     border-radius: 40px;
     padding: 32px 24px;
@@ -45,106 +58,205 @@ picture a{
     gap: 4px;
     top: -12%;
 }
-h1{
+
+
+h1 {
     font-size: 1.5rem;
     width: 80%;
 }
-.preco{
+
+
+.preco {
     color: #23CB98;
 }
-.info-produto p{
+
+
+.info-produto p {
     font-size: 0.8rem;
     padding: 4px;
     line-height: 1.2rem;
+    color: var(--cinza_claro);
+}
+.avaliacao{
+    display: flex;
 }
 
-.comentarios{
-    padding: 0 24px;
+.avaliacao img{
+    position: relative;
+}
+.s2{
+    left: -2px;
+}
+.s3{
+    left: -4px;
+}
+.s4{
+    left: -6px;
+}
+.s5{
+    left: -8px;
+}
+
+.comentarios {
+    padding: 24px;
     overflow-y: scroll;
 }
-h3{
+
+
+h3 {
     display: flex;
     align-items: center;
     gap: 12px;
+    font-size: 1rem;
 }
-.comentario{
+
+.comentarios .coment-container{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 12px;
+}
+
+.comentario {
     background-color: #F5F5F5;
     font-size: 0.8rem;
     padding: 12px;
     display: grid;
     grid-template-rows: 48% 1fr;
     gap: 8px;
+    color: var(--cinza_claro);
+    border-radius: 8px;
 }
-.cabecalho-comentario{
+
+.comentarios::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+}
+
+
+.comentarios::-webkit-scrollbar {
+    width: 5px;
+    background-color: #F5F5F5;
+
+
+}
+
+
+.comentarios::-webkit-scrollbar-thumb {
+    background-color: #0000005b;
+    height: 10%;
+}
+
+
+.cabecalho-comentario {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
-.info-comentario{
+
+.iconeEnome{
+    display: flex;
+}
+.info-comentario {
     display: grid;
     height: 100%;
     padding: 8px;
     place-content: center start;
 }
-.avaliacao-comentario{
-     display: flex;
-     height: 100%;
-     padding-left: 10%;
-     justify-content: end;
-}
-.avaliacao-comentario img{
-    height: 36%;
+
+
+.avaliacao-comentario {
+    display: flex;
+    height: 100%;
+    justify-content: end;
+    gap: -10px;
 }
 
-@media (min-width: 800px){
 
-    body{
+.avaliacao-comentario img {
+    height: 40%;
+}
+
+.titulo-comentario {
+    font-weight: 700;
+}
+
+
+@media (min-width: 800px) {
+
+
+    body {
         background-image: linear-gradient(#f27806ce 60%, #fff3e700);
         overflow: hidden;
         grid-template-rows: 56% 44%;
-        padding: 48px;
+        padding: 60px;
+        padding-bottom: 0;
     }
 
-    .produto{
+
+    .produto {
         display: flex;
         gap: 2vw;
-        padding-bottom: 12px;
+        padding: 32px;
+        width: 90%;
+        
     }
 
-    picture{
-        height: 100%;
+
+    picture {
+        height: 80%;
     }
-    picture a{
+
+
+    picture a {
         display: grid;
         position: fixed;
     }
-    
-    .info-produto{
+
+
+    .info-produto {
         background-color: var(--branco);
         border-radius: 0;
         padding: 32px 24px;
-        display: grid;
         gap: 4px;
         top: 0;
+
     }
-    .info-produto p{
+
+
+    .info-produto p {
         font-size: 0.9rem;
         padding: 4px 48px 4px 0;
         line-height: 1rem;
     }
+    .avaliacao{
+        height: 100%;
+    }
 
-    .comentarios{
-        padding: 0 24px;
+
+    .comentarios {
+        padding: 0;
         overflow-y: scroll;
         background-color: var(--branco);
         padding: 32px;
-        border-radius: 30px;
+        border-radius: 20px;
     }
-    h3{
+
+
+
+
+
+    h3 {
         display: flex;
         align-items: center;
         gap: 12px;
+        padding-bottom: 24px;
+        position: fixed;
+        background-color: var(--branco);
+        width: 90%;
     }
-    .comentario{
+
+    .comentario {
         background-color: #F5F5F5;
         font-size: 0.8rem;
         padding: 12px;
@@ -152,4 +264,5 @@ h3{
         grid-template-rows: 48% 1fr;
         gap: 8px;
     }
+
 }
