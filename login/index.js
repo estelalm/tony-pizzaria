@@ -9,8 +9,9 @@ const mostrarLogin = () => {
     const subtitle = document.getElementById('subtitle')
     const loginContainer = document.getElementById('login')
 
-    title.innerHTML ='Acesse sua <br> conta'
+    title.innerHTML ='Acesse a sua <br> conta'
     subtitle.textContent ="O que você está esperando para saborear as mais deliciosas pizzas e sobremesas da região?"
+    title.classList.remove('inicial')
 
     loginContainer.classList.add('show')
     loginContainer.classList.add('remove')

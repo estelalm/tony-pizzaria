@@ -22,7 +22,7 @@ body{
     background-size: cover;
     color: var(--branco);
     font-family: var(--text);
-    background: linear-gradient(#fc7a00da 10%, #ffffff);
+    background: linear-gradient(#fc7a0098 10%, #ffffff);
     background-attachment: fixed;
     overflow-x: hidden;
 }
@@ -45,6 +45,7 @@ header{
     display: flex;
     justify-content: space-between;
     padding: 24px 24px 12px 24px;
+    height: 10.5vh;
 }
 header p{
     display: grid;
@@ -52,10 +53,19 @@ header p{
 
 /* home */
 header p a {
-    font-weight: 700;
-    font-size: 1.5rem;
+    font-weight: 500;
+    font-size: 1.3rem;
+}
+header p{
+    font-size: 0.8rem;
 }
 
+header label{
+    display: none;
+}
+header img{
+    height:110%;
+}
 main{
     display: flex;
     flex-direction: column;
@@ -67,7 +77,7 @@ main{
 .search{
     background-color: var(--branco);
     padding: 12px;
-    border-radius: 10px;
+    border-radius: 8px;
     width: 90%;
     display: flex;
     align-items: center;
@@ -105,21 +115,24 @@ main{
 }
 .container-categorias{
     display: flex;
-    height: 8vh;
+    height: 6vh;
     align-items: center;
     gap: 12px;
     overflow-x: scroll;
 }
+.container-categorias::-webkit-scrollbar{
+    display: none;
+}
 .container-categorias a{
-    height: 80%;
+    height: 100%;
     width: 14vw;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--vermelho);
     border-radius: 10%;
-    padding: 12px;
-    box-shadow: rgba(0, 0, 0, 0.418) 4px 1px 6px;
+    padding: 11px;
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
 }
 .container-categorias a img{
     height: 100%;
@@ -133,10 +146,11 @@ main{
     overflow-x: hidden;
     padding-top: 18px;
     overflow-y: hidden;
+    font-size: 0.85rem;
+    letter-spacing: 0.2px;
 }
 
-/* containers das pizzas, favoritos e  */
-
+/* containers das pizzas, favoritos  */
 .user-pizza div div{
     display: flex;
     align-items: center;
@@ -157,6 +171,7 @@ main{
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
 }
 .fav-container .display span{
     position: relative;
@@ -164,18 +179,20 @@ main{
     left: -28%;
 }
 .preco{
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     background-color: var(--vermelho);
-    padding: 4px 6px;
+    padding: 2px 4px;
     border-radius: 50px;
     color: var(--branco);
     text-shadow: black 1px 1px 2px;
 }
 .fav-container .display p{
-    font-size: 0.8rem;
+    font-size: 0.72rem;
     background-color: rgba(0, 0, 0, 0.534);
-    width: 100%;
+    width: 80%;
     padding: 8px;
+    text-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5);
+    place-self: start;
 }
 
 .rec-container{
@@ -183,13 +200,15 @@ main{
 }
 .rec-container .display{
     width: 44vw;
+    height: 100%;
 }
 .rec-container .display p{
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     width: 100%;
     position: relative;
     bottom: 12%;
     padding: 8px;
+    text-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 1);
 }
 .rec-container .display span{
     position: relative;
@@ -237,6 +256,49 @@ main{
     color: gray;
     font-size: 0.8rem;
 }
+
+.menu-mobile{
+    background-color: var(--laranja);
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 8vh;
+    position: fixed;
+    bottom: 0.1px;
+    align-items: center;
+    padding: 16px;
+}
+.menu-mobile a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    font-size: 0.8rem;
+    font-weight: 300;
+    justify-content: center;
+    letter-spacing: 0.3px;
+}
+.menu-link img{
+    height: 80%;
+}
+
+
+
+
+
+
+
+
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+
+
+
+
+
+
 
 @media (min-width: 800px){
 
@@ -313,6 +375,10 @@ main{
         height: 60%;
     }
 
+    .menu-mobile{
+display: none;
+    }
+
 
     .user-pizza{
      display: grid;
@@ -381,6 +447,7 @@ main{
         display: flex;
         flex-direction: row;
         height: 100%;
+        
     }
 
 }

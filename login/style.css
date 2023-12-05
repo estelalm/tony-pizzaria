@@ -34,7 +34,7 @@ header{
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 24px 16px;
+    padding: 16px 16px;
 }
 header .logo{
     height: 100%;
@@ -60,20 +60,28 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: end;
-    gap: 32px;
+    gap: 48px;
 }
 .fixed{
     width: 100%;
     display: grid;
     place-items: center;
 }
+.inicial{
+    font-size: 2rem;
+    width: 90%;
+}
+
 #title{
     font-size: 1.8rem;
     letter-spacing: 0.2vw;
+    padding-bottom: 1.6vh;
 }
 #subtitle{
-    font-size: 1rem;
+    font-size: 0.9rem;
     width: 92%;
+    font-weight: 300;
+    letter-spacing: 0.02rem;
 }
 
 #comecar{
@@ -98,6 +106,7 @@ main{
     display: grid;
     gap: 12px;
 }
+
 .log{
     border-bottom: solid white 1px;
     display: flex;
@@ -116,6 +125,9 @@ input:focus{
 ::-webkit-input-placeholder {
     color: var(--branco);
     font-family: var(--most-text);
+    font-weight: 300;
+    font-size: 1.1em;
+    letter-spacing: 0.05rem;
  }
 
 button{
@@ -128,8 +140,17 @@ button{
     width: 80vw;
     border-radius: 5px;
 }
+#entrar{
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-top: 16px;
+}
+
+
 .login-container p{
     place-self: end;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 .criar{
     display: grid;
@@ -137,6 +158,7 @@ button{
     text-align: center;
     font-size: .8rem;
     padding-top: 48px;
+    font-weight: 300;
 }
 .criar a{
     text-decoration: none;
@@ -144,6 +166,7 @@ button{
     text-shadow: black 2px 0 0;
     font-size: 1.2rem;
     padding: 8px;
+    font-weight: 700;
 }
 
 
