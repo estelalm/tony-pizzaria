@@ -22,7 +22,7 @@ body{
     background: linear-gradient(#f27806ce 60%, #fff3e700);
     z-index: -1;
     width: 100vw;
-    height: 100lvh;
+    height: 100vh;
 }
 header{
     display: flex;
@@ -95,7 +95,7 @@ label{
 }
 input{
     border: none;
-    border-bottom: solid 1px black;
+    border-bottom: solid 2px rgba(171, 171, 171, 0.512);
     padding: 8px;
 }
 input:focus{
@@ -141,6 +141,7 @@ input:focus{
         display: grid;
         grid-template-rows: 20% 1fr;
         place-content: center;
+        padding: 32px;
     }
 
     .espaco-criar{
@@ -151,10 +152,24 @@ input:focus{
         display: grid;
         gap: 12px;
         width: 40vw;
+        grid-template-rows: 90% 10%;
     }
 
     .espaco-criar button{
-        width: 50%;
+        width: 40%;
         place-self: center;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 50%;
+    }
+    .info{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    label{
+        font-size: 1.2rem;
+        color: gray;
     }
 }
