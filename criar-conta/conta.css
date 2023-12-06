@@ -32,6 +32,9 @@ header{
     font-weight: 700;
     height: 12%;
 }
+header img{
+    height: 60%;
+}
 main{
     height: 90%;
     width: 100%;
