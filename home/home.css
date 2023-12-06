@@ -155,6 +155,10 @@ main{
     display: flex;
     align-items: center;
     gap: 12px;
+    overflow-x: scroll;
+}
+.user-pizza div div::-webkit-scrollbar{
+    display: none;
 }
 .fav-container{
     height: 12vh;
@@ -243,6 +247,11 @@ main{
     justify-content: start;
     height: 10vh;
 }
+.iconeEtexto{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
 .bebida img{
     height: 100%;
 }
@@ -330,12 +339,12 @@ main{
         overflow: visible;
         font-size: 1.2rem;
     }
-    picture{
+    .picture{
         display: flex;
         align-items: center;
         gap: 12px;
     }
-    picture img{
+    .picture img{
         height: 80%;
         border-radius: 50px;
     }
@@ -447,7 +456,6 @@ display: none;
         display: flex;
         flex-direction: row;
         height: 100%;
-        
     }
 
 }
