@@ -97,32 +97,35 @@ const infoFavorito = (favoritos) => {
 }
 const criarFavorito = (favorito) =>{
 
-    const containerFavoritos = document.getElementById('fav-container')
+    favArray.includes(favorito.id)
+        favArray.push(favorito.id)
+        const containerFavoritos = document.getElementById('fav-container')
+    
+        const display = document.createElement('div')
+        display.classList.add('pizza-display')
+        display.classList.add('display')
+        display.classList.add('produto')
+    
+        const valor = document.createElement('span')
+        valor.classList.add('preco')
+        valor.innerHTML =`R$${favorito.preco}`
+    
+        const nomePizza = document.createElement('p')
+        nomePizza.classList.add('nome-pizza')
+        nomePizza.textContent = favorito.nome
+    
+        const imgPizza = document.createElement('img')
+        imgPizza.src = `../img/${favorito.imagem}`
+    
+        display.replaceChildren(valor, nomePizza, imgPizza)
+        containerFavoritos.appendChild(display)
+    
+        display.addEventListener('click', () =>{
+            const idDoProduto = favorito.id
+            localStorage.setItem('id-produto', idDoProduto)
+            window.location.assign('../produto/produto.html')
+        })
 
-    const display = document.createElement('div')
-    display.classList.add('pizza-display')
-    display.classList.add('display')
-    display.classList.add('produto')
-
-    const valor = document.createElement('span')
-    valor.classList.add('preco')
-    valor.innerHTML =`R$${favorito.preco}`
-
-    const nomePizza = document.createElement('p')
-    nomePizza.classList.add('nome-pizza')
-    nomePizza.textContent = favorito.nome
-
-    const imgPizza = document.createElement('img')
-    imgPizza.src = `../img/${favorito.imagem}`
-
-    display.replaceChildren(valor, nomePizza, imgPizza)
-    containerFavoritos.appendChild(display)
-
-    display.addEventListener('click', () =>{
-        const idDoProduto = favorito.id
-        localStorage.setItem('id-produto', idDoProduto)
-        window.location.assign('../produto/produto.html')
-    })
 
 }
 
