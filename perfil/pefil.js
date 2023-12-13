@@ -3,7 +3,7 @@
 let idUsuario = localStorage.getItem('usuarioId')
 const botSair = document.getElementById('sair')
 botSair.addEventListener('click', () =>{
-    window.location.assign('../login/index.html')
+    window.location.assign('../index.html')
     localStorage.setItem('usuarioId', 0)
 })
 

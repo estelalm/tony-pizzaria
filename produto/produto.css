@@ -166,6 +166,7 @@ h3 {
 }
 .iconeEnome img{
     height: 5vh;
+    border-radius: 50px;
 }
 .info-comentario {
     display: grid;

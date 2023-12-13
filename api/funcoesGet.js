@@ -92,6 +92,23 @@ const infoProduto = (produto) => {
     return produto.produto
 }
 
+
+//get comentarios
+async function getComentarios (idProduto) {
+    try {
+        
+        const url = 'http://localhost:8080/comentarios/produto/id/' + idProduto
+        const response = await fetch(url)
+        const data = await response.json()
+        return data
+      } catch (erro) {
+      }
+}
+const infoComentarios = (comentarios) => {
+    return comentarios.comentarios
+}
+
+
 module.exports ={
     getUsuarios,
     getFavoritos,

@@ -1,6 +1,5 @@
 'use strict'
 
-alert('Criação de conta temporáriamente desativada. É possível preencher as informações e criar "simbolicamente", mas ela não poderá ser utilizada. ')
 const botCriar = document.getElementById('criar-conta')
 
 
@@ -71,7 +70,7 @@ const criarConta = () => {
         alert("As senhas não são iguais")
     } else {
         alert("Conta criada, voltando para a página de login.  [AVISO: a página está com problema no momento, mas é só clicar no botao de voltar para logar normalmente]")
-        window.location.assign("../login/index.html")
+        window.location.assign("../index.html")
         console.log('ok')
     }
 

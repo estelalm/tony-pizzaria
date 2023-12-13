@@ -17,7 +17,6 @@ async function loadProduto(){
     .then((data) =>{
         let produto = infoProduto(data)
         criarProduto(produto)
-        console.log(produto)
     })
 }
 const infoProduto = (produto) => {
@@ -63,7 +62,6 @@ const toggleFavorito = async (infoFav) =>{
         body: JSON.stringify(infoFav)
     }
    const response = await fetch(url, options)
-// .then(response => response.json()).then(data => console.log(data))
 
 return response.ok
 }
@@ -75,7 +73,6 @@ const criarProduto = (produto) =>{
     const picture = document.getElementById('picture')
     picture.style.backgroundImage = `url(${'../img/' + produto.imagem + ''})`
 
-    console.log(produto.imagem)
     const heart = document.createElement('img')
     heart.classList.add('heart')
 
@@ -105,7 +102,6 @@ const criarProduto = (produto) =>{
             produto: produto.id,
             efavorito: eFavorito
         }
-        console.log(infoFav)
         toggleFavorito(infoFav)
      })
 
@@ -132,60 +128,135 @@ const criarProduto = (produto) =>{
 
     infoProduto.replaceChildren(nomeProduto, preco, descricaoProduto, avaliacaoProduto, heart)
 
-    const comentariosContainer = document.getElementById('coment-container')
-
-    produto.comentarios.forEach((comentario) =>{
-
-        const caixaComentario = document.createElement('div')
-        caixaComentario.classList.add('comentario')
-        const cabecalho = document.createElement('div')
-        cabecalho.classList.add('cabecalho-comentario')
-        const iconeEnome = document.createElement('div')
-        iconeEnome.classList.add('iconeEnome')
-        const userIcone = document.createElement('img')
-        if(comentario.perfil!=undefined)
-        userIcone.src = `../img/${comentario.perfil}`
-        else
-        userIcone.src = '../img/person.png'
-
-        const infoComentario = document.createElement('div')
-        infoComentario.classList.add('info-comentario')
-        const nomeUsuario = document.createElement('span')
-        nomeUsuario.classList.add('nome')
-        nomeUsuario.textContent = comentario.usuario
-        const dataComentario = document.createElement('span')
-        dataComentario.classList.add('data')
-        dataComentario.textContent = comentario.data
-
-        infoComentario.replaceChildren(nomeUsuario, dataComentario)
-        iconeEnome.replaceChildren(userIcone, infoComentario)
 
 
-        const avaliacaoComentario = document.createElement('div')
-        avaliacaoComentario.classList.add('avaliacao-comentario')
+
+    // produto.comentarios.forEach((comentario) =>{
+
+    //     const caixaComentario = document.createElement('div')
+    //     caixaComentario.classList.add('comentario')
+    //     const cabecalho = document.createElement('div')
+    //     cabecalho.classList.add('cabecalho-comentario')
+    //     const iconeEnome = document.createElement('div')
+    //     iconeEnome.classList.add('iconeEnome')
+    //     const userIcone = document.createElement('img')
+    //     if(comentario.perfil!=undefined)
+    //     userIcone.src = `../img/${comentario.perfil}`
+    //     else
+    //     userIcone.src = '../img/person.png'
+
+    //     const infoComentario = document.createElement('div')
+    //     infoComentario.classList.add('info-comentario')
+    //     const nomeUsuario = document.createElement('span')
+    //     nomeUsuario.classList.add('nome')
+    //     nomeUsuario.textContent = comentario.usuario
+    //     const dataComentario = document.createElement('span')
+    //     dataComentario.classList.add('data')
+    //     dataComentario.textContent = comentario.data
+
+    //     infoComentario.replaceChildren(nomeUsuario, dataComentario)
+    //     iconeEnome.replaceChildren(userIcone, infoComentario)
+
+
+    //     const avaliacaoComentario = document.createElement('div')
+    //     avaliacaoComentario.classList.add('avaliacao-comentario')
        
-        for(let index = 1; index <= comentario.avaliacao; index++){
-            let estrela = document.createElement('img')
-            estrela.src = '../img/estrela.svg'
+    //     for(let index = 1; index <= comentario.avaliacao; index++){
+    //         let estrela = document.createElement('img')
+    //         estrela.src = '../img/estrela.svg'
     
-            avaliacaoComentario.appendChild(estrela)
-        }
+    //         avaliacaoComentario.appendChild(estrela)
+    //     }
 
-        cabecalho.replaceChildren(iconeEnome, avaliacaoComentario)
+    //     cabecalho.replaceChildren(iconeEnome, avaliacaoComentario)
     
-        const textoComentario = document.createElement('p')
-        textoComentario.classList.add('texto-comentario')
-        const tituloComentario = document.createElement('span')
-        tituloComentario.textContent = comentario.tituloComentario
-        textoComentario.appendChild(tituloComentario)
-        textoComentario.textContent = comentario.conteudo
+    //     const textoComentario = document.createElement('p')
+    //     textoComentario.classList.add('texto-comentario')
+    //     const tituloComentario = document.createElement('span')
+    //     tituloComentario.textContent = comentario.tituloComentario
+    //     textoComentario.appendChild(tituloComentario)
+    //     textoComentario.textContent = comentario.conteudo
 
-        caixaComentario.replaceChildren(cabecalho, textoComentario)
-        comentariosContainer.appendChild(caixaComentario)
-    })
+    //     caixaComentario.replaceChildren(cabecalho, textoComentario)
+    //     comentariosContainer.appendChild(caixaComentario)
+    // })
 
 }
+
+async function getComentarios () {
+    try {
+        
+        const url = 'http://localhost:8080/comentarios/produto/id/' + idProduto
+        const response = await fetch(url)
+        const data = await response.json()
+        return data
+      } catch (erro) {
+      }
+}
+async function loadComentarios(){
+    getComentarios()
+    .then((data) =>{
+        let comentarios = infoComentarios(data)
+        comentarios.forEach(criarComentario)
+    })
+}
+const infoComentarios = (comentarios) => {
+    return comentarios.comentarios
+}
+
  loadProduto()
 
+const criarComentario = (comentario) =>{
+    const comentariosContainer = document.getElementById('coment-container')
 
+  
+    const caixaComentario = document.createElement('div')
+    caixaComentario.classList.add('comentario')
+    const cabecalho = document.createElement('div')
+    cabecalho.classList.add('cabecalho-comentario')
+    const iconeEnome = document.createElement('div')
+    iconeEnome.classList.add('iconeEnome')
+    const userIcone = document.createElement('img')
+    if(comentario.perfil!=undefined)
+    userIcone.src = `../img/${comentario.perfil}`
+    else
+    userIcone.src = '../img/person.png'
+
+    const infoComentario = document.createElement('div')
+    infoComentario.classList.add('info-comentario')
+    const nomeUsuario = document.createElement('span')
+    nomeUsuario.classList.add('nome')
+    nomeUsuario.textContent = comentario.usuario
+    const dataComentario = document.createElement('span')
+    dataComentario.classList.add('data')
+    dataComentario.textContent = comentario.data
+
+    infoComentario.replaceChildren(nomeUsuario, dataComentario)
+    iconeEnome.replaceChildren(userIcone, infoComentario)
+
+
+    const avaliacaoComentario = document.createElement('div')
+    avaliacaoComentario.classList.add('avaliacao-comentario')
+   
+    for(let index = 1; index <= comentario.avaliacao; index++){
+        let estrela = document.createElement('img')
+        estrela.src = '../img/estrela.svg'
+
+        avaliacaoComentario.appendChild(estrela)
+    }
+
+    cabecalho.replaceChildren(iconeEnome, avaliacaoComentario)
+
+    const textoComentario = document.createElement('p')
+    textoComentario.classList.add('texto-comentario')
+    const tituloComentario = document.createElement('span')
+    tituloComentario.textContent = comentario.tituloComentario
+    textoComentario.appendChild(tituloComentario)
+    textoComentario.textContent = comentario.conteudo
+
+    caixaComentario.replaceChildren(cabecalho, textoComentario)
+    comentariosContainer.appendChild(caixaComentario)
+}
  
+
+loadComentarios()

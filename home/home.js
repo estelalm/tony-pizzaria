@@ -97,8 +97,6 @@ const infoFavorito = (favoritos) => {
 }
 const criarFavorito = (favorito) =>{
 
-    favArray.includes(favorito.id)
-        favArray.push(favorito.id)
         const containerFavoritos = document.getElementById('fav-container')
     
         const display = document.createElement('div')

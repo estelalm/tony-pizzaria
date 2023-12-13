@@ -66,6 +66,10 @@ header label{
 header img{
     height:110%;
 }
+.perfil img{
+    border-radius: 50px;
+}
+
 main{
     display: flex;
     flex-direction: column;
@@ -147,8 +151,8 @@ main{
 .user-pizza{
     display: grid;
     grid-template-rows: 50% 50%;
-    height: 36vh;
-    gap: 0.8vh;
+    height: 40vh;
+    gap: 0.3vh;
     overflow-x: hidden; 
     padding-top: 18px;
     overflow-y: hidden;
@@ -163,19 +167,17 @@ main{
     align-items: center;
     gap: 12px;
     overflow-x: scroll;
-    width: 65%;
+    width: 96vw;
     flex-shrink: 0;
-    flex-basis: max-content;
-    flex-grow: 1;
-
 }
 .user-pizza div div::-webkit-scrollbar{
     display: none;
 }
 .fav-container{
     height: 12vh;
-    width: 100%;
+    width: 90vw;
     overflow-x: scroll;
+    padding-right: 5vw;
 }
 
 .favoritos{
@@ -186,13 +188,13 @@ main{
     flex-shrink: 0;
 }
 .recomendados{
-    gap: 12px;
+    gap: 0;
     display: flex;
     flex-direction: column;
 }
 .display{
     height: 100%;
-    width: 42vw;
+    max-width: 42vw;
     position: relative;
     border-radius: 10px;
     display: flex;
@@ -230,11 +232,14 @@ main{
 }
 
 .rec-container{
-    height: 16vh;
+    display: flex;
+    height: 18vh;
+    padding-right: 5vw;
+    align-items: start;
 }
 .rec-container .display{
-    width: 44vw;
-    height: 100%;
+    max-width: 46vw;
+    height: 80%;
 }
 .rec-container .display p{
     font-size: 0.75rem;
@@ -246,8 +251,8 @@ main{
 }
 .rec-container .display span{
     position: relative;
-    top: -12%;
-    left: -28%;
+    top: 6%;
+    left: -30%;
 }
 
 .produtos{
@@ -255,7 +260,7 @@ main{
 }
 
 .section-produto{
-    padding: 24px;
+    padding: 12px 24px;
     gap: 8px;
     display: grid;
 }
