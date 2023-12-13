@@ -9,8 +9,8 @@ const mostrarLogin = () => {
     const subtitle = document.getElementById('subtitle')
     const loginContainer = document.getElementById('login')
 
-    title.innerHTML ='Acesse a sua <br> conta'
-    subtitle.textContent ="O que você está esperando para saborear as mais deliciosas pizzas e sobremesas da região?"
+    title.innerHTML = 'Acesse a sua <br> conta'
+    subtitle.textContent = "O que você está esperando para saborear as mais deliciosas pizzas e sobremesas da região?"
     title.classList.remove('inicial')
 
     loginContainer.classList.add('show')
@@ -20,16 +20,52 @@ const mostrarLogin = () => {
 }
 botComecar.addEventListener('click', mostrarLogin)
 
-const logar = () => {
 
-    let login = document.getElementById('email').value
-    let senha = document.getElementById('senha').value
+async function getUsuarios() {
+    try {
+        const url = 'http://localhost:8080/usuarios'
+        const response = await fetch(url)
+        const data = await response.json()
+        return data
+    } catch (erro) {
+    }
+}
 
-    // if(login == "user@gmail.com" && senha == "senha123"){
-        window.location.assign('../home/home.html')
-    // }else{
-    //     alert("usuário ou senha incorretos.")
-    // }
+document.getElementById('email').value = "celso.silva@email.com"
+document.getElementById('senha').value = "Fulano01"
+
+async function logar() {
+    getUsuarios()
+        .then((data) => {
+
+            let usuarios = infoUsuarios(data)
+            let loginValido = false
+
+            let login = document.getElementById('email').value
+            let senha = document.getElementById('senha').value
+
+            usuarios.forEach((usuario) => {
+
+                let usuarioEmail
+                let usuarioSenha
+                if (usuario.email == login && senha == usuario.senha) {
+                    usuarioEmail = usuario.email
+                    usuarioSenha = usuario.senha
+                    let idUsuario = usuario.id
+                    localStorage.setItem('usuarioId', idUsuario)
+                    console.log(localStorage.getItem('usuarioId'))
+                    loginValido = true
+                } 
+            })
+            if(loginValido)
+            window.location.assign('../home/home.html')
+            else
+            alert('Usuário ou senha incorretos')
+            
+        })
+}
+const infoUsuarios = (usuarios) => {
+    return usuarios.usuarios
 }
 
 botEntrar.addEventListener('click', logar)

@@ -1,5 +1,6 @@
 'use strict'
 
+alert('Criação de conta temporáriamente desativada. É possível preencher as informações e criar "simbolicamente", mas ela não poderá ser utilizada. ')
 const botCriar = document.getElementById('criar-conta')
 
 
@@ -33,9 +34,33 @@ const mudarPerfil = () => {
     return iconImage
 }
 
-const criarConta = () => {
+async function getUsuarios () {
+    try {
+        const url = 'http://localhost:8080/usuarios'
+        const response = await fetch(url)
+        const data = await response.json()
+        return data
+      } catch (erro) {
+      }
+}
+const infoUsuarios = (usuarios) => {
+    return usuarios.usuarios
+}
+const infoProduto = (produto) => {
+    return produto.produto
+}
+const getIdNovoUsuario = () =>{
+    getUsuarios()
+    .then((data) =>{
+        let usuarios = infoUsuarios(data)
+        let novoId = usuarios.length  + 1
+        localStorage.setItem('novoid', novoId)
+    })
 
-    const emailValido = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    return localStorage.getItem('novoid')
+}
+console.log(getIdNovoUsuario())
+const criarConta = () => {
 
     const nome = document.getElementById('nome').value
     const email = document.getElementById('email').value
@@ -48,24 +73,48 @@ const criarConta = () => {
     } else if (senha != senhaConfirmada) {
         alert("As senhas não são iguais")
     } else {
-        alert("Conta criada, voltando para a página de login")
-        window.location.assign("../index.html")
+        alert("[SIMULAÇÃO] Conta criada, voltando para a página de login.")
+        window.location.assign("../login/index.html")
+        console.log('ok')
     }
 
-    // if (nome == "" || email == "" || senha == "" || senhaConfirmada == "" || telefone == "") {
-    //     alert('Preencha todos os campos')
-    // } else if (!email.match(emailValido)) {
-    //     alert("Email invalido")
-    // } else if (senha != senhaConfirmada) {
-    //     alert("As senhas não são iguais")
-    // } else {
-    //     alert("Conta criada, voltando para a página de login")
-    //     window.location.assign("./login/index.html")
-    // }
-
-    return status
-
+    let JSONusuario = {
+            id: getIdNovoUsuario(),
+            nome: nome,
+            email: email,
+            senha: senha,
+            telefone: telefone,
+            imagem: icon,
+            localizacao : [
+            ]
+        }  
+    return JSONusuario
 }
 
-mudarPerfil()
-botCriar.addEventListener('click', criarConta)
+const cadastrarUsuario = async () =>{
+
+        let usuario = criarConta()
+        const url = 'http://localhost:8080/usuarios'
+        const options = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify(usuario)
+        }
+        console.log(usuario)
+    
+       const response = await fetch(url, options)
+    // .then(response => response.json()).then(data => console.log(data))
+
+    return response.ok
+}
+
+ 
+// cadastroteste()
+// mudarPerfil()
+
+botCriar.addEventListener('click', cadastrarUsuario)
+
+// criarConta()

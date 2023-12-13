@@ -21,7 +21,7 @@ body {
     color: var(--cinza);
     height: 100vh;
     width: 100vw;
-    overflow-x: hidden;
+    overflow: hidden;
     display: grid;
     grid-template-rows: 1fr 40%;
 }
@@ -29,15 +29,14 @@ body {
 
 
 picture {
-    height: 50%;
+    height: 54%;
     width: 100%;
     overflow: hidden;
     display: grid;
     place-content: center;
-    background-image: url(../img/peperoni-queijo.jpg);
     background-size: cover;
     background-position: center;
-    padding: 32px;
+    padding: 24px;
 }
 
 
@@ -46,9 +45,14 @@ picture a {
     position: fixed;
 }
 picture a img{
-    height: 4vh;
+    height: 3vh;
 }
 
+.heart{
+    position: absolute;
+    right: 32px;
+    top: 12%;
+}
 
 .info-produto {
     background-color: var(--branco);
@@ -102,6 +106,8 @@ h1 {
 
 .comentarios {
     padding: 24px;
+    top: 24px;
+    position: relative;
     overflow-y: scroll;
 }
 
@@ -129,10 +135,10 @@ h3 {
     gap: 8px;
     color: var(--cinza_claro);
     border-radius: 8px;
+    
 }
 
 .comentarios::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #F5F5F5;
 }
 
@@ -140,8 +146,6 @@ h3 {
 .comentarios::-webkit-scrollbar {
     width: 5px;
     background-color: #F5F5F5;
-
-
 }
 
 
@@ -160,6 +164,9 @@ h3 {
 .iconeEnome{
     display: flex;
 }
+.iconeEnome img{
+    height: 5vh;
+}
 .info-comentario {
     display: grid;
     height: 100%;
@@ -177,7 +184,7 @@ h3 {
 
 
 .avaliacao-comentario img {
-    height: 40%;
+    height: 2vh;
 }
 
 .titulo-comentario {

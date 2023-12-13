@@ -18,11 +18,11 @@ a{
 
 body{
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     background-size: cover;
     color: var(--branco);
     font-family: var(--text);
-    background: linear-gradient(#fc7a0098 10%, #ffffff);
+    background: linear-gradient(#fc7a00d7 20%, #ffffff);
     background-attachment: fixed;
     overflow-x: hidden;
 }
@@ -126,6 +126,9 @@ main{
 .container-categorias::-webkit-scrollbar{
     display: none;
 }
+.categorias::-webkit-scrollbar{
+    display: none;
+}
 .container-categorias a{
     height: 100%;
     width: 14vw;
@@ -146,11 +149,12 @@ main{
     grid-template-rows: 50% 50%;
     height: 36vh;
     gap: 0.8vh;
-    overflow-x: hidden;
+    overflow-x: hidden; 
     padding-top: 18px;
     overflow-y: hidden;
     font-size: 0.85rem;
     letter-spacing: 0.2px;
+    width: 100%;
 }
 
 /* containers das pizzas, favoritos  */
@@ -159,19 +163,27 @@ main{
     align-items: center;
     gap: 12px;
     overflow-x: scroll;
+    width: 100%;
+    flex-shrink: 0;
+    flex-basis: max-content;
+    flex-grow: 1;
+
 }
 .user-pizza div div::-webkit-scrollbar{
     display: none;
 }
 .fav-container{
     height: 12vh;
-    overflow: auto;
+    width: 100%;
+    overflow-x: scroll;
 }
 
 .favoritos{
     gap: 12px;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    flex-shrink: 0;
 }
 .recomendados{
     gap: 12px;
@@ -242,18 +254,20 @@ main{
     width: 100%;
 }
 
-.produto{
+.section-produto{
     padding: 24px;
     gap: 8px;
     display: grid;
 }
-.produto div{
+.section-produto div{
     color: black;
     text-shadow: none;
+
 }
 .bebidas-container{
     display: grid;
     gap: 8px;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 .bebida{
     display: flex;
@@ -272,6 +286,7 @@ main{
 }
 .bebida img{
     height: 100%;
+    width: 14%;
 }
 .bebida .texto{
     display: flex;
@@ -282,6 +297,8 @@ main{
 .bebida p{
     color: gray;
     font-size: 0.8rem;
+    width: 100%;
+    text-overflow: ellipsis;
 }
 
 .menu-mobile{
@@ -341,16 +358,18 @@ main{
     }
 
     .search{
-        width: 52%;
+        width: 53vw;
+        justify-content: space-between;
     }
     
     main{
-        padding: 0 128px;
+        padding: 0 48px;
+        width: 100%;
     }
 
     .first-page{
         display: flex;
-        width: 100%;
+        width: 100vw;
         padding-left: 24px;
         flex-direction: row-reverse;
         height: 50vh;
@@ -376,19 +395,35 @@ main{
         display: flex;
         flex-direction: column;
         align-items: center;
-        overflow: visible;
         gap: 16px;
+        font-size: 1rem;
     }
     .container-categorias{
         display: flex;
         height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
         align-items: center;
         gap: 12px;
         flex-direction: column;
-        width: 6vh;
+        width: 8.2vh;
+        padding-right: 5px;
+    }
+    
+    .container-categorias::-webkit-scrollbar {
+        width: 2px;
+        display: block;
+    }
+    .container-categorias::-webkit-scrollbar-track {
+        display: none;
+    }
+    .container-categorias::-webkit-scrollbar-thumb {
+        background-color: #eb4b4bf5;
+        height: 5px;
+        width: 2px;
     }
     .container-categorias a{
-        height: 6vh;
+        height: 7.8vh;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -396,10 +431,10 @@ main{
         background-color: var(--vermelho);
         border-radius: 10%;
         padding: 12px;
-        box-shadow: rgba(0, 0, 0, 0.418) 4px 1px 6px;
+        box-shadow: rgba(0, 0, 0, 0.048) 4px 1px 6px;
     }
     .container-categorias a img{
-        height: 60%;
+        height: 80%;
     }
 
     .menu-mobile{
@@ -412,10 +447,20 @@ display: none;
      height: 100%;
      grid-template-rows: 1fr 1fr;
      width: 90%;
+     padding-left: 48px;
     }
     /* container do display */
     .user-pizza div div{
-        height: 80%;
+        height: 16vh;
+        width: 100vw;
+        overflow-x: scroll;
+        flex-shrink: 0;
+        flex-basis: max-content;
+        flex-grow: 0;
+    }
+    .recomendados{
+        height: 100%;
+        display: grid;
     }
 
     .display{
@@ -423,10 +468,11 @@ display: none;
         height: 100%;
     }
     .rec-container{
-        height: 16vh;
+        height: 100%;
     }
     .rec-container .display{
-        width: auto;
+        width: 20vw;
+        height: 100%;
     }
     .rec-container .display p{
         font-size: 0.8rem;
@@ -443,32 +489,34 @@ display: none;
 
     .produto-container{
         display: grid;
-        width: 80%;
+        width: 100%;
         grid-template-columns: 1fr 1fr 1fr;
     }
 
     .bebida{
-        display: flex;
-        background-color: var(--branco);
-        padding: 12px;
-        border-radius: 12px;
+        border-radius: 6px;
         box-shadow: rgba(0, 0, 0, 0.418) 4px 1px 6px;
         align-items: end;
         justify-content: space-between;
         height: 10vh;
+        width: 26vw;
     }
     .bebida img{
         height: 100%;
+    }
+    .texto{
+        width: 20vw;
     }
     .bebida p{
         color: gray;
         font-size: 0.8rem;
         height: 100%;
+        width: 100%;
         display: grid;
-        place-content: center;
+        place-content: start;
     }
     .bebida h4{
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     .iconeEtexto{
         display: flex;
