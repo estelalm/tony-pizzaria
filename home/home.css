@@ -163,7 +163,7 @@ main{
     align-items: center;
     gap: 12px;
     overflow-x: scroll;
-    width: 100%;
+    width: 65%;
     flex-shrink: 0;
     flex-basis: max-content;
     flex-grow: 1;
@@ -267,7 +267,6 @@ main{
 .bebidas-container{
     display: grid;
     gap: 8px;
-    grid-template-columns: 1fr 1fr 1fr;
 }
 .bebida{
     display: flex;
@@ -276,7 +275,7 @@ main{
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.418) 4px 1px 6px;
     align-items: end;
-    justify-content: start;
+    justify-content: space-between;
     height: 10vh;
 }
 .iconeEtexto{
@@ -506,6 +505,9 @@ display: none;
     }
     .texto{
         width: 20vw;
+    }
+    .bebidas-container{
+        grid-template-columns: 1fr 1fr 1fr;
     }
     .bebida p{
         color: gray;

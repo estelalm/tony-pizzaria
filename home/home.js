@@ -24,7 +24,10 @@
                         let nomeUsuario = usuario.nome.split(" ", 2)
                         chamada.innerHTML = '<a href="#">Home</a> Bom dia, ' + nomeUsuario[0] + "!"
                         const icon = document.querySelector('.perfil')
-                        icon.src = '../img/' + usuario.imagem
+                        if(usuario.imagem)
+                        icon.src = usuario.imagem
+                        else
+                        icon.src = '../img/person.png'
                     }
                     
                 })
@@ -80,7 +83,6 @@ async function getFavoritos() {
         const data = await response.json()
         return data;
       } catch (error) {
-        console.error('Erro:', error)
       }
 }
 async function loadFavoritos(){
@@ -124,6 +126,57 @@ const criarFavorito = (favorito) =>{
 
 }
 
+async function getRecomendados() {
+    try {
+        const url = 'http://localhost:8080/produtos/recomendados'
+        const response = await fetch(url)
+        const data = await response.json()
+        return data;
+      } catch (error) {
+        console.error('Erro:', error)
+      }
+}
+async function loadRecomendados(){
+    getRecomendados()
+    .then((data) =>{
+        let recomendados = infoRecomendados(data)
+            recomendados.forEach(criarRecomendado)
+    })
+}
+const infoRecomendados = (recomendados) => {
+    return recomendados.recomendados
+}
+
+const criarRecomendado = (recomendado) =>{
+
+    const containerRecomendados = document.getElementById('rec-container')
+
+    const display = document.createElement('div')
+    display.classList.add('recomendados-display')
+    display.classList.add('display')
+    display.classList.add('produto')
+
+    const valor = document.createElement('span')
+    valor.classList.add('preco')
+    valor.innerHTML =`R$${recomendado.preco}`
+
+    const nomePizza = document.createElement('p')
+    nomePizza.classList.add('nome-pizza')
+    nomePizza.textContent = recomendado.nome
+
+    const imgPizza = document.createElement('img')
+    imgPizza.src = `../img/${recomendado.imagem}`
+
+    display.replaceChildren(valor, nomePizza, imgPizza)
+    containerRecomendados.appendChild(display)
+
+    display.addEventListener('click', () =>{
+        const idDoProduto = recomendado.id
+        localStorage.setItem('id-produto', idDoProduto)
+        window.location.assign('../produto/produto.html')
+    })
+
+}
 
 async function getProdutos(id) {
     try {
@@ -182,24 +235,25 @@ const criarBebidas = (produto) =>{
     displayProduto.replaceChildren(imagemEtexto, preco)
     containerProdutos.appendChild(displayProduto)
 
-    displayProduto.addEventListener('click', () =>{
-        const idDoProduto = produto.id
-        localStorage.setItem('id-produto', idDoProduto)
-        window.location.assign('../produto/produto.html')
-    })
+    // displayProduto.addEventListener('click', () =>{
+    //     const idDoProduto = produto.id
+    //     localStorage.setItem('id-produto', idDoProduto)
+    //     window.location.assign('../produto/produto.html')
+    // })
     
 }
 
-async function loadProdutosCategoria(){
-    getProdutos(2)
-    .then((data) =>{
-        let bebidas = infoProdutosCategoria(data)
-        bebidas.forEach(criarBebidas)
-    })
-}
+// async function loadProdutosCategoria(){
+//     getProdutos(2)
+//     .then((data) =>{
+//         let bebidas = infoProdutosCategoria(data)
+//         bebidas.forEach(criarBebidas)
+//     })
+// }
 //criar as coisas
 loadCategorias()
 loadFavoritos()
 loadBebidas()
+loadRecomendados()
 
 

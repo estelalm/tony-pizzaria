@@ -1,10 +1,10 @@
 'use strict'
 
 
-let idUsuario = localStorage.getItem('usuarioId') 
+let idUsuario = localStorage.getItem('usuarioId')
+let idProduto = localStorage.getItem('id-produto')
 async function getProduto () {
     try {
-        const idProduto = localStorage.getItem('id-produto')
         const url = 'http://localhost:8080/produto/id/' + idProduto
         const response = await fetch(url)
         const data = await response.json()
@@ -82,7 +82,7 @@ const criarProduto = (produto) =>{
     let eFavorito = false
     let arrayFavoritos = localStorage.getItem('arrayFavs')
 
-        if(arrayFavoritos.includes(arrayFavoritos.toString())){
+        if(arrayFavoritos.includes(idProduto.toString())){
             heart.src = '../img/hart.svg'
             eFavorito = true
         }else{
@@ -105,6 +105,7 @@ const criarProduto = (produto) =>{
             produto: produto.id,
             efavorito: eFavorito
         }
+        console.log(infoFav)
         toggleFavorito(infoFav)
      })
 

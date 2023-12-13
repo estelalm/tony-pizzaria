@@ -46,9 +46,6 @@ async function getUsuarios () {
 const infoUsuarios = (usuarios) => {
     return usuarios.usuarios
 }
-const infoProduto = (produto) => {
-    return produto.produto
-}
 const getIdNovoUsuario = () =>{
     getUsuarios()
     .then((data) =>{
@@ -73,7 +70,7 @@ const criarConta = () => {
     } else if (senha != senhaConfirmada) {
         alert("As senhas não são iguais")
     } else {
-        alert("[SIMULAÇÃO] Conta criada, voltando para a página de login.")
+        alert("Conta criada, voltando para a página de login.  [AVISO: a página está com problema no momento, mas é só clicar no botao de voltar para logar normalmente]")
         window.location.assign("../login/index.html")
         console.log('ok')
     }
@@ -111,10 +108,6 @@ const cadastrarUsuario = async () =>{
     return response.ok
 }
 
- 
-// cadastroteste()
-// mudarPerfil()
-
+ mudarPerfil()
+//a conta cria normal, mas a página da erro
 botCriar.addEventListener('click', cadastrarUsuario)
-
-// criarConta()
