@@ -376,9 +376,10 @@ main{
         width: 100vw;
         padding-left: 24px;
         flex-direction: row-reverse;
-        height: 50vh;
+        height: 53vh;
         overflow: visible;
         font-size: 1.2rem;
+        user-select: none;
     }
     .picture{
         display: flex;
@@ -452,15 +453,26 @@ display: none;
      grid-template-rows: 1fr 1fr;
      width: 90%;
      padding-left: 48px;
+     font-size: 1.2rem;
     }
     /* container do display */
     .user-pizza div div{
-        height: 16vh;
-        width: 100vw;
+        height: 20vh;
+        width: 85vw;
         overflow-x: scroll;
         flex-shrink: 0;
-        flex-basis: max-content;
-        flex-grow: 0;
+    }
+    .user-pizza::-webkit-scrollbar {
+        width: 2px;
+        display: block;
+    }
+    .user-pizza::-webkit-scrollbar-track {
+        display: none;
+    }
+    .user-pizza::-webkit-scrollbar-thumb {
+        background-color: #eb4b4bf5;
+        height: 5px;
+        width: 2px;
     }
     .recomendados{
         height: 100%;
@@ -468,7 +480,7 @@ display: none;
     }
 
     .display{
-        width: 16vw;
+        max-width: 18vw;
         height: 100%;
     }
     .rec-container{
@@ -507,6 +519,7 @@ display: none;
     }
     .bebida img{
         height: 100%;
+        width: 22%;
     }
     .texto{
         width: 20vw;
